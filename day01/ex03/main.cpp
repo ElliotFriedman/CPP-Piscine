@@ -6,37 +6,18 @@
 /*   By: efriedma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 23:30:40 by efriedma          #+#    #+#             */
-/*   Updated: 2019/01/23 13:06:03 by efriedma         ###   ########.fr       */
+/*   Updated: 2019/01/23 14:25:35 by efriedma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ZombieEvent.hpp"
+#include "ZombieFactory.hpp"
 #include "Zombie.hpp"
 
 int main()
 {
-	Zombie *a = new Zombie("Heap Zombie");
-	ZombieEvent factory;
-	Zombie d("Stack Zombie");
+	ZombieFactory *factory = new ZombieFactory(10);//("Factory");
 
-	Zombie *b = factory.newZombie("No Brains and No Spine!");	
-
-	//this function takes d by reference
-	factory.setZombieType("Factory modified zombie", d);
-
-	Zombie *c = b->randomChump();
-	std::cout << "Announcing A" << std::endl;	
-	a->announce();
-	std::cout << "Announcing B" << std::endl;
-	b->announce();
-	std::cout << "Announcing C" << std::endl;	
-	c->announce();
-	std::cout << "Announcing D" << std::endl;
-	d.announce();
-
-	delete a;
-	delete b;
-	delete c;
+	delete factory;
 
 	//test for leaks
 	//while (1);
