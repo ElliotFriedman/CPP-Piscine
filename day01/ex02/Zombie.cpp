@@ -6,7 +6,7 @@
 /*   By: efriedma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 21:57:20 by efriedma          #+#    #+#             */
-/*   Updated: 2019/01/22 23:39:59 by efriedma         ###   ########.fr       */
+/*   Updated: 2019/01/23 11:53:49 by efriedma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void			Zombie::announce(void) const
 {
-	std::cout << getName() << " " << getType() << " Brainssssssssss..." << std::endl;
+	std::cout << _name << " " << _type << " Brainssssssssss..." << std::endl;
 }
 
-std::string		Zombie::getType(void) const
+void			Zombie::setType(std::string type)
 {
-	return _type;
+	_type = type;
 }
 
 void			Zombie::setName(std::string name)
@@ -27,39 +27,33 @@ void			Zombie::setName(std::string name)
 	_name = name;
 }
 
-std::string		Zombie::getName(void) const
+std::string 	Zombie::randStr(int len)
 {
-	return _name;
-}
-
-std::string 	Zombie::randStr(void)
-{
-	int len = 6;
 	int i = 0;
 	
 	std::srand(time(0));
 	std::string str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	std::string newstr;
 	int pos;
-	
+	len += std::rand() % 16;
 	while(i < len)
 	{
 		pos = ((std::rand() % (str.size() - 1)));
 		newstr += str.substr(pos,1);
 		i++;
 	}
-	return newstr;
+	return newstr.substr(std::rand() % 3, std::rand() % str.size() - 1);
 }
 
 Zombie			*Zombie::randomChump(void)
 {
 	Zombie	*ret = new Zombie("random chump");
-	ret->setName(randStr());
+	ret->setName(randStr(5));
 	return ret;
 }
 
 Zombie::Zombie(std::string type)
 {
 	_type = type;
-	_name = randStr();
+	_name = randStr(4) + randStr(3);
 }

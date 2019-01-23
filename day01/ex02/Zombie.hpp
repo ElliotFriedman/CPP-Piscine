@@ -6,7 +6,7 @@
 /*   By: efriedma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 21:52:37 by efriedma          #+#    #+#             */
-/*   Updated: 2019/01/22 23:37:31 by efriedma         ###   ########.fr       */
+/*   Updated: 2019/01/23 11:28:26 by efriedma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ class Zombie {
 	std::string _name;
 
 	public:
-	std::string		randStr(void);
+	std::string		randStr(int salt);
 	void			setName(std::string name) ;
-	std::string		getName(void) const;
-	std::string		getType(void) const;
+	void			setType(std::string type);
 	Zombie			*randomChump(void);
 	Zombie(std::string type);
 	void			announce(void) const;

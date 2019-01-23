@@ -6,7 +6,7 @@
 /*   By: efriedma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 22:33:36 by efriedma          #+#    #+#             */
-/*   Updated: 2019/01/22 23:43:10 by efriedma         ###   ########.fr       */
+/*   Updated: 2019/01/23 11:45:30 by efriedma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class ZombieEvent {
 	std::string	_type;
 
 	public:
-	void		setZombieType(std::string type);
 	Zombie*		newZombie(std::string name);
 	void		setZombieType(std::string type, Zombie& change);
 };
