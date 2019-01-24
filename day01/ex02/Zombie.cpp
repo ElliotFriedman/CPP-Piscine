@@ -6,7 +6,7 @@
 /*   By: efriedma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 21:57:20 by efriedma          #+#    #+#             */
-/*   Updated: 2019/01/23 11:53:49 by efriedma         ###   ########.fr       */
+/*   Updated: 2019/01/23 17:44:43 by efriedma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,26 @@ void			Zombie::setName(std::string name)
 	_name = name;
 }
 
+std::string		randomChar(void)
+{
+	std::string str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	int pos = (std::rand() + std::time(nullptr))  % 60;
+	std::string ret = str.substr(pos, 1);
+	return ret;
+}
+
 std::string 	Zombie::randStr(int len)
 {
 	int i = 0;
-	
-	std::srand(time(0));
-	std::string str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
 	std::string newstr;
-	int pos;
 	len += std::rand() % 16;
 	while(i < len)
 	{
-		pos = ((std::rand() % (str.size() - 1)));
-		newstr += str.substr(pos,1);
+		newstr += randomChar();
 		i++;
 	}
-	return newstr.substr(std::rand() % 3, std::rand() % str.size() - 1);
+	return newstr;
 }
 
 Zombie			*Zombie::randomChump(void)
