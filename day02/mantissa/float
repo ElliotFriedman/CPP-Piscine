@@ -1,0 +1,54 @@
+
+8 bit float
+
+1st bit is signed
+
+0 is positive 1 is negative
+
+2nd to 5th bit is exponent
+
+6th bit to 7th bit is mantissa bit
+
+
+EX00
+
+s exponent  m
+0 1 1 0 0 1 1 1
+
+positive ?
+correct
+
+exponent
+16/32 + 8/32 + 1/32 = 25/32
+
+mantissa
+3
+
+result
+3 * (2^(25/32)) = 5.1558578944
+
+
+EX01
+
+
+32 bit float
+
+1st bit is signed
+
+0 is positive 1 is negative
+
+2nd to 9th bit is exponent
+
+10th bit to 31th bit is mantissa bit
+
+
+s | e e e e e e e e | m m m m m m m m m m m m m m m m m m m m m m m m 
+1 | 1 1 1 0 1 0 1 0 | 1 0 1 0 1 0 0 0 0 0 1 0 0 1 0 0 0 0 1 0 1 0 0 0
+
+exponent
+64/128 + 32/128 + 16/128 + 4/128 + 1/128
+
+mantissa
+11019304 - ( 2 ^ 24 -1 )
+
+result = 
