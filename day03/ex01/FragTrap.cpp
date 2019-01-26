@@ -6,7 +6,7 @@
 /*   By: efriedma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 23:40:05 by efriedma          #+#    #+#             */
-/*   Updated: 2019/01/25 16:15:43 by efriedma         ###   ########.fr       */
+/*   Updated: 2019/01/25 17:42:06 by efriedma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	FragTrap::rangedAttack(FragTrap& target)
 	}
 	if (hitPoints <= 0)
 	{
-		std::cout << "\33[91mError, you cannot attack when you are dead\33[0m\n";
+		std::cout << "\33[91mError, you cannot attack when you are dead and have a health of " + std::to_string(hitPoints) + "\33[0m\n";
 		return ;
 	}
 	if (energyPoints - 25 < 0)
@@ -100,14 +100,15 @@ void	FragTrap::meleeAttack(FragTrap& target)
 	{
 		std::cout << "\33[91mError, you cannot attack the dead\33[0m\n";
 		return ;
-	}if (hitPoints <= 0)
+	}
+	if (hitPoints <= 0)
 	{
-		std::cout << "\33[91mError, you cannot attack when you are dead\n\33[0m";
+		std::cout << "\33[91mError, you cannot attack when you are dead and have a health of " + std::to_string(hitPoints) + "\33[0m\n";
 		return ;
 	}
 	if (energyPoints - 25 < 0)
 	{
-		std::cout <<  "\33[91mNot enough energy points to mount a vaulthunter_dot_exe attack\n\33[0m";
+		std::cout <<  "\33[91mNot enough energy points to mount a melee attack\n\33[0m";
 		return ;
 	}
 	target.armorDamageReduction = target.armorDamageReduction < 0 ? 0 : target.armorDamageReduction;
@@ -133,9 +134,10 @@ void	FragTrap::vaulthunter_dot_exe(FragTrap& target)
 	{
 		std::cout << "\33[91mError, you cannot attack the dead\33[0m\n";
 		return ;
-	}if (hitPoints <= 0)
+	}
+	if (hitPoints <= 0)
 	{
-		std::cout << "\33[91mError, you cannot attack when you are dead\33[0m\n";
+		std::cout << "\33[91mError, you cannot attack when you are dead and have a health of " + std::to_string(hitPoints) + "\33[0m\n";
 		return ;
 	}
 	if (energyPoints - 25 < 0)
