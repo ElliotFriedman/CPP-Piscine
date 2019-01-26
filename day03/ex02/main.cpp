@@ -6,12 +6,13 @@
 /*   By: efriedma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 13:15:24 by efriedma          #+#    #+#             */
-/*   Updated: 2019/01/25 17:53:32 by efriedma         ###   ########.fr       */
+/*   Updated: 2019/01/25 22:39:44 by efriedma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 #include <iostream>
 
 int main()
@@ -64,8 +65,6 @@ int main()
 	c.rangedAttack(c);
 	c.challengeNewComer();
 	FragTrap d("hello");
-
-	c.meleeAttack(d);
-	d.meleeAttack(c);
-	c.vaulthunter_dot_exe(a);
+	FragTrap e("b:");
+	d.meleeAttack(e);
 }

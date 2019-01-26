@@ -6,10 +6,9 @@
 /*   By: efriedma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 23:40:05 by efriedma          #+#    #+#             */
-/*   Updated: 2019/01/25 18:05:36 by efriedma         ###   ########.fr       */
+/*   Updated: 2019/01/25 22:30:53 by efriedma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
@@ -35,6 +34,10 @@ class ClapTrap {
 		ClapTrap(std::string _name);
 		~ClapTrap( void );
 		ClapTrap &operator=(ClapTrap const &operate);
+		void    takeDamage(unsigned int amount);
+		void    rangedAttack(ClapTrap& target);
+		void    meleeAttack(ClapTrap& target);
+		void    beRepaired(unsigned int amount);
 
 };
 

@@ -6,14 +6,18 @@
 /*   By: efriedma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 23:40:05 by efriedma          #+#    #+#             */
-/*   Updated: 2019/01/25 17:51:53 by efriedma         ###   ########.fr       */
+/*   Updated: 2019/01/25 22:37:24 by efriedma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include <cstdlib>
 #include <iostream>
+
+ScavTrap::ScavTrap(void)
+{
+	std::cout << "Initialized ScavTrap without a constructor value\n";
+}
 
 ScavTrap::ScavTrap(const ScavTrap &copy)
 {
@@ -36,15 +40,13 @@ ScavTrap::ScavTrap(std::string _name)
 	name = _name;
 	hitPoints = 100;
 	maxHitPoints = 100;
-	energyPoints = 50;
-	maxEnergyPoints = 50;
+	energyPoints = 100;
+	maxEnergyPoints = 100;
 	Level = 1;
-	meleeAttackDamage = 25;
-	rangedAttackDamage = 15;
-	armorDamageReduction = 3;
-
-	std::cout << "Constructor Called in ScavTrap, Name: " + _name + "\n";
-	std::cout << "Hitpoints: " + std::to_string(hitPoints) + "\n";
+	meleeAttackDamage = 30;
+	rangedAttackDamage = 20;
+	armorDamageReduction = 5;
+	std::cout << "Constructor Called, ScavTrap Name: " + _name + "\n";
 }
 
 ScavTrap	&ScavTrap::operator=(ScavTrap const &copy)
@@ -56,7 +58,7 @@ ScavTrap	&ScavTrap::operator=(ScavTrap const &copy)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "Destructor Called\n";
+	std::cout << "Destructor Called in Scav Trap\n";
 }
 
 void	ScavTrap::challengeNewComer(void)
@@ -66,7 +68,6 @@ void	ScavTrap::challengeNewComer(void)
 		std::cout << "\33[91mError, you cannot challenge when you are dead and have a health of " + std::to_string(hitPoints)  + "\33[0m\n";
 		return ;
 	}
-	//5 randomly chosen challenges
 	int challenge = rand() % 9;
 	std::string print = name;
 	print += " challenges you to fight ";
@@ -84,9 +85,3 @@ void	ScavTrap::challengeNewComer(void)
 	std::cout << print;
 }
 
-void	ScavTrap::vaulthunter_dot_exe(FragTrap& target)
-{
-	std::cout << "\33[91mError, you cannot access vaulthunter_dot_exe in ScavTrap.Goodbye\33[0m\n";
-	target = target;		
-	return ;
-}
