@@ -54,11 +54,17 @@ void	Game::handleCollision(LivingObject &prev, GameObjectListNode &node) {
 			if (map[y][x]) {
 				if (map[y][x]->isEnemy() != node.obj->isEnemy()) {
 					if (map[y][x]->takeDamage() == false) {
+
+						//figure out how to delete this properly
 						delete map[y][x];
+
 						map[y][x] = nullptr;
+
 					}
 					if (node.obj->takeDamage() == false) {
+					
 						objects.remove(*node.obj);
+						
 						delete node.obj;
 					}
 				}
