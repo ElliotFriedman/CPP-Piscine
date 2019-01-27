@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   GameObject.hpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: efriedma <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/26 10:43:20 by efriedma          #+#    #+#             */
-/*   Updated: 2019/01/26 15:08:19 by efriedma         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef GAMEOBJECT_HPP
 #define  GAMEOBJECT_HPP
 
@@ -35,6 +23,7 @@ class GameObject
 		void			shift(void);
 		int				getX(void) const;
 		int				getY(void) const;
+		bool			isEnemy(void) const;
 		char			getEntity(void) const;
 		virtual void	render(WINDOW *window) const;
 };
