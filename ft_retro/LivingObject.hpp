@@ -6,18 +6,20 @@
 /*   By: efriedma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/26 10:43:20 by efriedma          #+#    #+#             */
-/*   Updated: 2019/01/26 23:25:22 by efriedma         ###   ########.fr       */
+/*   Updated: 2019/01/27 23:35:20 by efriedma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIVINGOBJECT_HPP
 #define  LIVINGOBJECT_HPP
 
-#include "GameObject.hpp"
+# define BULLET '*'
 
-class LivingObject// : public GameObject
+
+class LivingObject
 {
 	protected:
+		int		framecount;
 		int		lives;
 		int		xp;
 		int		yp;
@@ -26,17 +28,15 @@ class LivingObject// : public GameObject
 		bool	enemy;
 		char	entity;
 	
-	/*	
-		GameObject(bool _enemy, char _entity, int _xp, int _yp, int _xv, int _yv);
-		GameObject(GameObject& copy);
-		~GameObject(void);
-		GameObject& operator=(GameObject& copyFrom);
-	*/
 	public:
-		LivingObject(bool _enemy, char _entity, int _xp, int _yp, int _xv, int _yv, int _lives);
+		LivingObject(int _x, int _y);
+		LivingObject();
+		LivingObject(bool _enemy, char _entity, int _xp, int _yp, int _xv, int _yv, int _lives, int _framecount);
 		LivingObject(LivingObject& copy);
 		virtual ~LivingObject(void);
 		LivingObject& operator=(LivingObject& copyFrom);
+		LivingObject* operator=(LivingObject* copyFrom);
+
 		int				getLives(void) const;
 		void			update(void);
 		void			shift(void);
@@ -44,8 +44,20 @@ class LivingObject// : public GameObject
 		int				getY(void) const;
 		bool			isEnemy(void) const;
 		char			getEntity(void) const;
-		virtual void	render(WINDOW *window) const;
+		void			setEntity(char c);
 		bool			takeDamage(void);
+		void			setDead(void);
+		int				getVecX(void);
+		int				getVecY(void);
+		void			setPX(int _x);
+		int				liveChange(int number);
+		
+		void			upFramecount(void);
+		int				getFramecount(void);
+		void			setFramecount(int number);
+
+		void			createBullet(bool _enemy, int _xp, int _yp, int _xv, int _yv, int _framecount);
+		void			setEntity(char c, int _x, int _y);
 };
 
 #endif

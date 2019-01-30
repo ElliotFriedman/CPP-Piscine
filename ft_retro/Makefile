@@ -1,10 +1,10 @@
 NAME = a.out
 
-CLASSES = Game GameObjectList #GameObject
+CLASSES = Game LivingObject main #GameObject
 MODULES = #main
 
 CXX = clang++
-CPPFLAGS += -Wall -Wextra -Werror -Wpedantic -I ./
+CPPFLAGS += -Wall -Wextra -Werror -fsanitize=address -g -I ./
 
 CLS_SRC = $(addsuffix .cpp, $(CLASSES))
 SRC = $(CLS_SRC) $(addsuffix .cpp, $(MODULES))
