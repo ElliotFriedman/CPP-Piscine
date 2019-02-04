@@ -30,8 +30,10 @@ void display(HostnameInfo &host,
 	refresh();
 	for (int i = 0; i < 6; i++)
 	{
-		wclear(windows[i]);
-		werase(windows[i]);
+		wborder(windows[i], ' ', ' ', ' ',' ',' ',' ',' ',' ');
+		wrefresh(windows[i]);
+//		wclear(windows[i]);
+//		werase(windows[i]);
 	}
 
 	int start = 10;
@@ -39,7 +41,7 @@ void display(HostnameInfo &host,
 	if (host.getDisplay())
 	{
 		destroy_win(windows[0]);
-		windows[0] = create_newwin(6, 45, start, 10);
+		windows[0] = create_newwin(5, 45, start, 10);
 		start += 2;
 		mvaddstr(start, 13, const_cast<char *>(host.data().c_str()));
 		start += 5;
@@ -61,7 +63,7 @@ void display(HostnameInfo &host,
 		windows[2] = create_newwin(5, 45, start, 10);
 		start += 2;
 		mvaddstr(start, 13, const_cast<char *>(datetime.data().c_str()));
-		start += 3;
+		start += 5;
 	}
 	//int total lines = 6
 	//
@@ -96,12 +98,11 @@ void display(HostnameInfo &host,
 		start += 2;
 		mvaddstr(start, 13, const_cast<char *>(os.data().c_str()));
 	}
-	for (int i = 0; i < 6; i++)
+/*	for (int i = 0; i < 6; i++)
 	{
 		wrefresh(windows[i]);
 	}
-
-	//	wrefresh();
+	*/
 }
 
 void	initscreen(void)
@@ -112,6 +113,7 @@ void	initscreen(void)
 	noecho();
 	refresh();
 	halfdelay(5);
+	curs_set(0);
 }
 
 int main(int argc, char *argv[])
