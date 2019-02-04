@@ -1,6 +1,6 @@
 NAME = ft_gkrellm
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -std=c98 -lncurses
+CFLAGS = -Wall -Wextra -Werror  -std=c98 -lncurses
 SRC = $(wildcard src/*.cpp)
 
 OBJECT = $(SRC:.cpp=.o)

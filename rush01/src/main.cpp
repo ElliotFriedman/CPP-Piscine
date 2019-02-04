@@ -32,12 +32,9 @@ void display(HostnameInfo &host,
 	{
 		wborder(windows[i], ' ', ' ', ' ',' ',' ',' ',' ',' ');
 		wrefresh(windows[i]);
-//		wclear(windows[i]);
-//		werase(windows[i]);
 	}
 
 	int start = 10;
-	//int total lines = 3 
 	if (host.getDisplay())
 	{
 		destroy_win(windows[0]);
@@ -46,7 +43,6 @@ void display(HostnameInfo &host,
 		mvaddstr(start, 13, const_cast<char *>(host.data().c_str()));
 		start += 5;
 	}
-	//int total lines = 4 
 	if (cpu.getDisplay())
 	{
 		destroy_win(windows[1]);
@@ -56,7 +52,6 @@ void display(HostnameInfo &host,
 		mvaddstr(start, 13, const_cast<char *>(cpu.data1().c_str()));
 		start += 5;
 	}	
-	//int total lines = 3 
 	if (datetime.getDisplay())
 	{
 		destroy_win(windows[2]);
@@ -65,8 +60,6 @@ void display(HostnameInfo &host,
 		mvaddstr(start, 13, const_cast<char *>(datetime.data().c_str()));
 		start += 5;
 	}
-	//int total lines = 6
-	//
 	if (network.getDisplay())
 	{
 		destroy_win(windows[3]);
@@ -80,8 +73,6 @@ void display(HostnameInfo &host,
 		start += 5;
 	}
 
-	//int total lines = 4
-	//
 	if (ram.getDisplay())
 	{
 		destroy_win(windows[4]);
@@ -98,11 +89,6 @@ void display(HostnameInfo &host,
 		start += 2;
 		mvaddstr(start, 13, const_cast<char *>(os.data().c_str()));
 	}
-/*	for (int i = 0; i < 6; i++)
-	{
-		wrefresh(windows[i]);
-	}
-	*/
 }
 
 void	initscreen(void)
@@ -115,6 +101,12 @@ void	initscreen(void)
 	halfdelay(5);
 	curs_set(0);
 }
+
+void	modify(WINDOW &ref)
+{
+
+}
+
 
 int main(int argc, char *argv[])
 {
@@ -139,6 +131,7 @@ int main(int argc, char *argv[])
 	WINDOW *my_win4;
 	WINDOW *my_win5;
 
+	modify(*my_win);
 	my_win = create_newwin(6, width, 9, 10);
 	my_win1 = create_newwin(6, width, 15, 10);
 	my_win2 = create_newwin(5, width, 21, 10);
@@ -154,7 +147,7 @@ int main(int argc, char *argv[])
 	windws[5] = my_win5;
 
 	printw("Press F1 to exit\n\n\t\t\tToggle Diplay\n\t\t\t1. Host\n\t\t\t2. CPU\n\t\t\t3. Date and Time\n\t\t\t4. Network Info\n\t\t\t5. RAM\n\t\t\t6. Operating System\n");
-
+	display(host, cpu, datetime, network, os, ram, windws);
 	while ((ch = getch()) != KEY_F(1))
 	{
 		display(host, cpu, datetime, network, os, ram, windws);
@@ -181,6 +174,10 @@ int main(int argc, char *argv[])
 			default:
 				break;
 		}
+	}
+	for (int i = 0; i < 6; i++)
+	{
+		delwin(windws[i]);
 	}
 	endwin();
 	return 0;
