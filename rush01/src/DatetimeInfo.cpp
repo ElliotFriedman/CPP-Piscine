@@ -4,6 +4,17 @@ DateTimeInfo::DateTimeInfo(void): IMonitorModule() {}
 
 DateTimeInfo::~DateTimeInfo(void) {}
 
+DateTimeInfo::DateTimeInfo( DateTimeInfo &obj) {}
+
+DateTimeInfo::DateTimeInfo(void){}
+
+DateTimeInfo::~DateTimeInfo(void){}
+
+DateTimeInfo& DateTimeInfo::operator=(DateTimeInfo &obj)
+{
+	return *this;
+}
+
 std::string DateTimeInfo::data(void)
 {	
 	std::time_t t = std::time(0);

@@ -2,6 +2,15 @@
 
 OSInfo::OSInfo(void): IMonitorModule() {}
 
+OSInfo::OSInfo( OSInfo &obj) {}
+
+OSInfo::~OSInfo(void){}
+
+OSInfo& OSInfo::operator=(OSInfo &obj)
+{
+	return *this;
+}
+
 OSInfo::~OSInfo(void) {}
 
 std::string OSInfo::data(void) {

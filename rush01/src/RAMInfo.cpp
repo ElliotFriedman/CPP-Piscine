@@ -1,5 +1,14 @@
 #include "../inc/RAMInfo.hpp"
 
+RAMInfo::RAMInfo( RAMInfo &obj) {}
+
+RAMInfo::~RAMInfo(void){}
+
+RAMInfo& RAMInfo::operator=(RAMInfo &obj)
+{
+	return *this;
+}
+
 RAMInfo::RAMInfo(void): IMonitorModule() {}
 
 RAMInfo::~RAMInfo(void) {}

@@ -3,6 +3,14 @@
 unsigned long long  CPUInfo::_previousIdleTicks = 0;
 unsigned long long  CPUInfo::_previousTotalTicks = 0;
 
+CPUInfo::CPUInfo( CPUInfo &obj) {}
+
+CPUInfo& CPUInfo::operator=(CPUInfo &obj)
+{
+	return *this;
+}
+
+
 CPUInfo::CPUInfo(void): IMonitorModule() {}
 
 CPUInfo::~CPUInfo(void) {}

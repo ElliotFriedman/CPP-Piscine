@@ -1,5 +1,15 @@
 #include "../inc/IMonitorModule.hpp"
 
+IMonitorModule::IMonitorModule( IMonitorModule &obj){}
+
+IMonitorModule::~IMonitorModule(void){}
+
+IMonitorModule& IMonitorModule::operator=(IMonitorModule &obj)
+{
+	return *this;
+}
+
+
 IMonitorModule::IMonitorModule(void)
 {
 	display = true;

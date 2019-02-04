@@ -18,6 +18,8 @@ class   CPUInfo: public IMonitorModule {
     public:
         CPUInfo(void);
         ~CPUInfo(void);
+        CPUInfo( CPUInfo &obj);
+        CPUInfo& operator=(CPUInfo &obj);
         std::string                 cpuBrand(void);
         std::string                 cpuCores(void);
         std::string                 data(void);

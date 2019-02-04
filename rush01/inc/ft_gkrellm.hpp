@@ -9,4 +9,6 @@
 #include "NetworkInfo.hpp"
 #include "OSInfo.hpp"
 #include "RAMInfo.hpp"
+#include "SDL.hpp"
+#include "Ncurses.hpp"
 #endif

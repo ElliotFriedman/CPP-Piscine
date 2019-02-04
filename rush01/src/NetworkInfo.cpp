@@ -8,6 +8,13 @@ NetworkInfo::NetworkInfo(void): IMonitorModule()
 
 NetworkInfo::~NetworkInfo(void) {}
 
+NetworkInfo::NetworkInfo( NetworkInfo &obj) :  _previousIdleTicks(0), _previousTotalTicks(0) {}
+
+NetworkInfo& NetworkInfo::operator=(NetworkInfo &obj)
+{
+	return *this;
+}
+
 /*
 ** https://stackoverflow.com/questions/1126790/how-to-get-network-adapter-stats-in-linux-mac-osx
 ** The state is described using a ``Management Information Base'' (MIB)

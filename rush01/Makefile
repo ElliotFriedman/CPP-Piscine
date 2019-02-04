@@ -1,15 +1,17 @@
 NAME = ft_gkrellm
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror  -std=c98 -lncurses
+CFLAGS = -Wall -Wextra -Werror -std=c98 -lncurses
 SRC = $(wildcard src/*.cpp)
-
 OBJECT = $(SRC:.cpp=.o)
 
+SDL = -F./frameworks
+SDL_FLAGS = -rpath ./frameworks -framework SDL2 -framework SDL2_ttf
+
 %.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) $(SDL) -c -o $@ $<
 
 $(NAME): $(OBJECT)
-	$(CC) $(CFLAGS) $(OBJECT) -o $@
+	$(CC) $(CFLAGS) $(OBJECT) $(SDL) $(SDL_FLAGS) -o $@
 
 all: $(NAME)
 
