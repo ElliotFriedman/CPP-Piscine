@@ -72,7 +72,6 @@ void display(HostnameInfo &host,
 		mvaddstr(start, 13, const_cast<char *>(("Total packets sent " + std::to_string(network.getOutPackets())).c_str()));
 		start += 5;
 	}
-
 	if (ram.getDisplay())
 	{
 		destroy_win(windows[4]);
@@ -102,11 +101,18 @@ void	initscreen(void)
 	curs_set(0);
 }
 
-void	modify(WINDOW &ref)
+void	init_win(std::vector<WINDOW *> &windws)
 {
+	int width;
 
+	width = 45;
+	windws[0] = create_newwin(6, width, 9, 10);
+	windws[1] = create_newwin(6, width, 15, 10);
+	windws[2] = create_newwin(5, width, 21, 10);
+	windws[3] = create_newwin(8, width, 26, 10);
+	windws[4] = create_newwin(6, width, 34, 10);
+	windws[5] = create_newwin(4, width, 37, 10);
 }
-
 
 int main(int argc, char *argv[])
 {
@@ -117,34 +123,11 @@ int main(int argc, char *argv[])
 	OSInfo          os;
 	RAMInfo         ram;
 	std::vector<WINDOW *> windws;
-	windws.reserve(6);
-	int width;
 	int ch;
-	width = 45;
 
+	windws.reserve(6);
+	init_win(windws);
 	initscreen();
-
-	WINDOW *my_win;
-	WINDOW *my_win1;
-	WINDOW *my_win2;
-	WINDOW *my_win3;
-	WINDOW *my_win4;
-	WINDOW *my_win5;
-
-	modify(*my_win);
-	my_win = create_newwin(6, width, 9, 10);
-	my_win1 = create_newwin(6, width, 15, 10);
-	my_win2 = create_newwin(5, width, 21, 10);
-	my_win3 = create_newwin(8, width, 26, 10);
-	my_win4 = create_newwin(6, width, 34, 10);
-	my_win5 = create_newwin(6, width, 37, 10);
-
-	windws[0] = my_win;
-	windws[1] = my_win1;
-	windws[2] = my_win2;
-	windws[3] = my_win3;
-	windws[4] = my_win4;
-	windws[5] = my_win5;
 
 	printw("Press F1 to exit\n\n\t\t\tToggle Diplay\n\t\t\t1. Host\n\t\t\t2. CPU\n\t\t\t3. Date and Time\n\t\t\t4. Network Info\n\t\t\t5. RAM\n\t\t\t6. Operating System\n");
 	display(host, cpu, datetime, network, os, ram, windws);
@@ -176,9 +159,7 @@ int main(int argc, char *argv[])
 		}
 	}
 	for (int i = 0; i < 6; i++)
-	{
 		delwin(windws[i]);
-	}
 	endwin();
 	return 0;
 }
