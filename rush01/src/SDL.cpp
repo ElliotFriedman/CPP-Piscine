@@ -1,25 +1,8 @@
 #include "../inc/SDL.hpp"
 
-SDL::SDL( SDL &obj)   IMonitorDisplay(), _window(NULL), _screenSurface(NULL),
-    _host(obj.host), _cpu(obj.cpu), _datetime(obj.datetime), _network(obj.network), _os(obj.os), _ram(obj.ram)
-{}
-
-
-
-SDL& SDL::operator=(SDL &obj)
-{
-	return *this;
-}
-
-
-SDL::SDL(HostnameInfo host
-        , SDL cpu
-        , DateTimeInfo datetime
-        , NetworkInfo network
-        , OSInfo os
-        , RAMInfo ram):
+SDL::SDL():
     IMonitorDisplay(), _window(NULL), _screenSurface(NULL),
-    _host(host), _cpu(cpu), _datetime(datetime), _network(network), _os(os), _ram(ram)
+    _host(), _cpu(), _datetime(), _network(), _os(), _ram()
 {
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         std::cerr << "could not initialize sdl2: " << SDL_GetError() << std::endl;

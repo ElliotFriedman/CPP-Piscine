@@ -7,6 +7,8 @@ class   IMonitorDisplay {
     public:
         IMonitorDisplay(void);
         ~IMonitorDisplay(void);
+        IMonitorDisplay( IMonitorDisplay &obj);
+        IMonitorDisplay& operator=(IMonitorDisplay &obj);
     private:
 };
 

@@ -8,8 +8,6 @@ NetworkInfo::NetworkInfo(void): IMonitorModule()
 
 NetworkInfo::~NetworkInfo(void) {}
 
-NetworkInfo::NetworkInfo( NetworkInfo &obj) :  _previousIdleTicks(0), _previousTotalTicks(0) {}
-
 NetworkInfo& NetworkInfo::operator=(NetworkInfo &obj)
 {
 	return *this;

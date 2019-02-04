@@ -8,6 +8,8 @@ class   IMonitorModule {
     public:
         IMonitorModule(void);
         ~IMonitorModule(void);
+		IMonitorModule& operator=(IMonitorModule &obj);
+		IMonitorModule( IMonitorModule &obj);
         virtual std::string data(void) = 0;
 		bool	displayModule(void);
 		bool	getDisplay(void);

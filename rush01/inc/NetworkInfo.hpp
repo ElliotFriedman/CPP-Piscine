@@ -10,6 +10,7 @@ class   NetworkInfo: public IMonitorModule {
     public:
         NetworkInfo(void);
         ~NetworkInfo(void);
+        NetworkInfo& operator=(NetworkInfo &obj);
         std::string data(void);
         void        getNetworkInfo(void);
         long        getInBytes(void);

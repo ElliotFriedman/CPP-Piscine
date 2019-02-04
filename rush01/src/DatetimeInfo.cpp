@@ -6,10 +6,6 @@ DateTimeInfo::~DateTimeInfo(void) {}
 
 DateTimeInfo::DateTimeInfo( DateTimeInfo &obj) {}
 
-DateTimeInfo::DateTimeInfo(void){}
-
-DateTimeInfo::~DateTimeInfo(void){}
-
 DateTimeInfo& DateTimeInfo::operator=(DateTimeInfo &obj)
 {
 	return *this;

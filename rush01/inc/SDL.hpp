@@ -17,12 +17,7 @@
 
 class   SDL: public IMonitorDisplay {
     public:
-        SDL(HostnameInfo host
-            , CPUInfo cpu
-            , DateTimeInfo datetime
-            , NetworkInfo network
-            , OSInfo os
-            , RAMInfo ram);
+        SDL();
         ~SDL(void);
         void            run(void);
         void            render(float x, float y, std::string str, bool display);

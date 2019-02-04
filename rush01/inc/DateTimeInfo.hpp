@@ -11,6 +11,8 @@ class   DateTimeInfo: public IMonitorModule {
     public:
         DateTimeInfo(void);
         ~DateTimeInfo(void);
+        DateTimeInfo( DateTimeInfo &obj);
+        DateTimeInfo& operator=(DateTimeInfo &obj);
         std::string         data(void);
     private:
 };

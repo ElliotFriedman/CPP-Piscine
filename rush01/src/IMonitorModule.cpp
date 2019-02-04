@@ -15,8 +15,6 @@ IMonitorModule::IMonitorModule(void)
 	display = true;
 }
 
-IMonitorModule::~IMonitorModule(void) {}
-
 bool			IMonitorModule::displayModule(void)
 {
 	return display;

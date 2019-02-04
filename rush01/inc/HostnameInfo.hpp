@@ -9,6 +9,8 @@ class   HostnameInfo: public IMonitorModule {
     public:
         HostnameInfo(void);
         ~HostnameInfo(void);
+        HostnameInfo( HostnameInfo &obj);
+        HostnameInfo& operator=(HostnameInfo &obj);
         std::string         data(void);
     private:
 };

@@ -11,7 +11,7 @@ Ncurses::~Ncurses(void){}
 
 Ncurses &Ncurses::operator=(Ncurses &obj)
 {
-	return this;
+	return *this;
 }
 
 

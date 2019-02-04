@@ -9,18 +9,12 @@ void    display_help(void) {
 
 int     main(int argc, char *argv[]) {
     std::string     arg;
-    HostnameInfo    host;
-    CPUInfo         cpu;
-    DateTimeInfo    datetime;
-    NetworkInfo     network;
-    OSInfo          os;
-    RAMInfo         ram;
 
     if (argc > 1) {
         arg.assign(argv[1]);
         if (arg == "-h" || arg == "--help") display_help();
         else if (arg == "-g" || arg == "--gui") {
-            SDL sdl(host, cpu, datetime, network, os, ram);
+            SDL sdl;
             sdl.run();
         }
     }
